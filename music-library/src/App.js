@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import MusicTable from "./Components/MusicTable/MusicTable";
+import SearchBar from "./Components/SearchBar/SearchBar";
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -22,6 +23,9 @@ function App() {
       </div>
       <div className="MusicTable">
         <MusicTable parentSongs={songs} />
+      </div>
+      <div className="SearchBar">
+        <SearchBar/>
       </div>
     </div>
   );
