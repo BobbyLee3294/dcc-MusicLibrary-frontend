@@ -1,20 +1,31 @@
 const MusicTable = (props) => {
   return (
-    <div>
-      <h1>Songs</h1>
-      {TableData.map(function (song, index) {
-        return (
-          <div key={index}>
-            <p>{song.title}</p>
-            <p>{song.artist}</p>
-            <p>{song.album}</p>
-            <p>{song.release_date}</p>
-            <p>{song.genre}</p>
-            <p>{song.likes}</p>
-          </div>
-        );
-      })}
-    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Release Date</th>
+          <th>Genre</th>
+          <th>Likes</th>
+        </tr>
+      </thead>
+      <tbody>
+        {props.parentSongs.map((song, index) => {
+          return (
+            <tr key={index}>
+              <td>{song.title}</td>
+              <td>{song.artist}</td>
+              <td>{song.album}</td>
+              <td>{song.release_date}</td>
+              <td>{song.genre}</td>
+              <td>{song.likes}</td>
+            </tr>
+          )
+        })}
+      </tbody>
+    </table>
   );
 };
 
