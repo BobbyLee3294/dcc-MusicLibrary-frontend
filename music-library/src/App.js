@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+// import components
 import MusicTable from "./Components/MusicTable/MusicTable";
 import SearchBar from "./Components/SearchBar/SearchBar";
+import AddSong from "./Components/AddSong/AddSong";
 
 function App() {
   const [songs, setSongs] = useState([]);
@@ -16,17 +18,31 @@ function App() {
     console.log(response);
     setSongs(response.data);
   }
+
+  function addNewSong(entry) {
+    let tempSongs = [entry, ...songs];
+    setSongs(tempSongs);
+  }
+
   return (
     <div>
-      <div className="getAllSongs-btn">
-        <button onClick={() => getAllSongs()}>Get All Songs</button>
-      </div>
-      <div className="MusicTable">
-        <MusicTable parentSongs={songs} />
-      </div>
-      <div className="SearchBar">
-        <SearchBar/>
-      </div>
+      <head>
+        <h1>Your Music Library</h1>
+      </head>
+      <body>
+        {/* <div id="getAllSongs-btn">
+          <button onClick={() => getAllSongs()}>Get All Songs</button>
+        </div> */}
+        <div id="AddSong">
+          <AddSong addNewSong={addNewSong} />
+        </div>
+        <div id="SearchBar">
+          <SearchBar /> {/* possible child passing for filter */}
+        </div>
+        <div id="MusicTable">
+          <MusicTable parentSongs={songs} />
+        </div>
+      </body>
     </div>
   );
 }
