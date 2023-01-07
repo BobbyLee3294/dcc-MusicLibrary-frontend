@@ -17,7 +17,6 @@ const AddSong = (props) => {
       releaseDate: songReleaseDate,
       genre: songGenre,
     };
-    /**TODO: adding a new song to the database */
     console.log(newSong);
     props.addNewSong(newSong);
   }
