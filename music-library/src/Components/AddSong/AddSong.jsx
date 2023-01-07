@@ -19,6 +19,7 @@ const AddSong = (props) => {
     };
     /**TODO: adding a new song to the database */
     console.log(newSong);
+    props.addNewSong(newSong);
   }
   return (
     <div>
@@ -90,11 +91,13 @@ const AddSong = (props) => {
             </div>
           </div>
         </div>
-        <div id="addSong-btn">
-          <input type="submit" value="Add Song" />
-        </div>
-        <div id="resetInfo-btn">
-          <input type="reset" />
+        <div id="button group">
+          <span id="submit-btn">
+            <input type="submit" value="Add Song" />
+          </span>
+          <span id="resetInfo-btn">
+            <input type="reset" />
+          </span>
         </div>
       </form>
     </div>
