@@ -23,7 +23,19 @@ function App() {
     let tempSongs = [entry, ...songs];
     setSongs(tempSongs);
   }
-
+  /**
+   * This filter function is used to filter through the database based on the value entered from the SearchBar component.
+   * @param {String} value The string value retrieved from the component
+   */
+  function songFilter(value) {
+    setSongs.filter((element) => {
+      if (element.value) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
   return (
     <div>
       <head>
@@ -37,7 +49,8 @@ function App() {
           <AddSong addNewSong={addNewSong} />
         </div>
         <div id="SearchBar">
-          <SearchBar /> {/* possible child passing for filter */}
+          <SearchBar songFilter={setSongs} />{" "}
+          {/* possible child passing for filter */}
         </div>
         <div id="MusicTable">
           <MusicTable parentSongs={songs} />
