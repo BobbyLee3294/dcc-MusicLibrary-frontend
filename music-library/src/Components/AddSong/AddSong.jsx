@@ -8,12 +8,6 @@ const AddSong = (props) => {
   const [songReleaseDate, setSongReleaseDate] = useState("");
   const [songGenre, setSongGenre] = useState("");
 
-  /** possible new function??
-   function handleChange(event) {
-     const value = value of input;
-     value(event.target.value)
-   };
-   */
   function handleSubmit(event) {
     event.preventDefault();
     let newSong = {
