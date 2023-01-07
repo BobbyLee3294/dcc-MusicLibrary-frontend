@@ -6,8 +6,9 @@ import SearchBar from "./Components/SearchBar/SearchBar";
 import AddSong from "./Components/AddSong/AddSong";
 
 function App() {
+  const baseURL = "http://127.0.0.1:8000/api/music/";
   const [songs, setSongs] = useState([]);
-  const [filteredResults, setFilteredResults] = useState("");
+  // const [filteredResults, setFilteredResults] = useState("");
 
   useEffect(() => {
     getAllSongs();
@@ -15,13 +16,15 @@ function App() {
   }, []);
 
   async function getAllSongs() {
-    const response = await axios.get("http://127.0.0.1:8000/api/music/");
+    const response = await axios.get(baseURL);
     console.log(response);
     setSongs(response.data);
   }
 
   function addNewSong(entry) {
     let tempNewSongs = [entry, ...songs];
+    const response = axios.post(baseURL, tempNewSongs);
+    console.log(response);
     setSongs(tempNewSongs);
   }
 
