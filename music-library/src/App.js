@@ -7,6 +7,7 @@ import AddSong from "./Components/AddSong/AddSong";
 
 function App() {
   const [songs, setSongs] = useState([]);
+  const [filteredResults, setFilteredResults] = useState("");
 
   useEffect(() => {
     getAllSongs();
@@ -20,42 +21,38 @@ function App() {
   }
 
   function addNewSong(entry) {
-    let tempSongs = [entry, ...songs];
-    setSongs(tempSongs);
+    let tempNewSongs = [entry, ...songs];
+    setSongs(tempNewSongs);
   }
-  /**
-   * This filter function is used to filter through the database based on the value entered from the SearchBar component.
-   * @param {String} value The string value retrieved from the component
-   */
-  function songFilter(value) {
-    setSongs.filter((element) => {
-      if (element.value) {
-        return true;
-      } else {
-        return false;
-      }
-    });
+
+  function searchItems(searchValue) {
+    if (searchInput !== "") {
+      const filteredData = songs.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      // console.log(filteredData);
+      setFilteredResults(filteredData);
+    } else {
+      setFilteredResults(songs)
+    }
   }
   return (
     <div>
-      <head>
-        <h1>Your Music Library</h1>
-      </head>
-      <body>
-        {/* <div id="getAllSongs-btn">
+      {/* <div id="getAllSongs-btn">
           <button onClick={() => getAllSongs()}>Get All Songs</button>
         </div> */}
-        <div id="AddSong">
-          <AddSong addNewSong={addNewSong} />
-        </div>
-        <div id="SearchBar">
-          <SearchBar songFilter={setSongs} />{" "}
-          {/* possible child passing for filter */}
-        </div>
-        <div id="MusicTable">
-          <MusicTable parentSongs={songs} />
-        </div>
-      </body>
+      <div id="AddSong">
+        <AddSong addNewSong={addNewSong} />
+      </div>
+      <div id="SearchBar">
+        <SearchBar parentSongs={songs} />
+      </div>
+      <div id="MusicTable">
+        <MusicTable parentSongs={songs} />
+      </div>
     </div>
   );
 }

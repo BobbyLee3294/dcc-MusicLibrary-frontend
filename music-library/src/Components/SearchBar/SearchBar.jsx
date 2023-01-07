@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 
 const SearchBar = (props) => {
-  const [userSearch, setUserSearch] = useState("");
+  const [searchInput, setSearchInput] = useState("");
+
+  const searchItems = (searchValue) => {
+    // console.log(searchValue); 
+    setSearchInput(searchValue);
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
-    setUserSearch(e.target.value);
+    searchItems(e.target.value);
   };
-  
+
   return (
     <div>
       <form action="">
@@ -15,13 +20,8 @@ const SearchBar = (props) => {
           <input
             type="search"
             id="formSearch"
-            value={userSearch}
+            value={searchInput}
             onChange={handleChange}
-          />
-          <input
-            type="submit"
-            id="formSubmit"
-            value="Search"
           />
         </div>
       </form>
