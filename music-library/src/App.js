@@ -25,20 +25,21 @@ function App() {
     setSongs(tempNewSongs);
   }
 
-  function searchItems(searchValue) {
-    if (searchInput !== "") {
-      const filteredData = songs.filter((item) => {
-        return Object.values(item)
-          .join("")
-          .toLowerCase()
-          .includes(searchInput.toLowerCase());
-      });
-      // console.log(filteredData);
-      setFilteredResults(filteredData);
-    } else {
-      setFilteredResults(songs)
-    }
-  }
+  // function searchItems(searchValue) {
+  //   if (searchInput !== "") {
+  //     const filteredData = songs.filter((item) => {
+  //       return Object.values(item)
+  //         .join("")
+  //         .toLowerCase()
+  //         .includes(searchInput.toLowerCase());
+  //     });
+  //     // console.log(filteredData);
+  //     setFilteredResults(filteredData);
+  //   } else {
+  //     setFilteredResults(songs)
+  //   }
+  // }
+
   return (
     <div>
       {/* <div id="getAllSongs-btn">
