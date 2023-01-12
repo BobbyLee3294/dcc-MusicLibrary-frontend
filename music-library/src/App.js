@@ -8,8 +8,7 @@ import AddSong from "./Components/AddSong/AddSong";
 function App() {
   const baseURL = "http://127.0.0.1:8000/api/music/";
   const [songs, setSongs] = useState([]);
-  // const [filteredResults, setFilteredResults] = useState("");
-
+  
   useEffect(() => {
     getAllSongs();
     console.log("Getting All Songs. Please wait...");
@@ -27,21 +26,6 @@ function App() {
     console.log(response);
     setSongs(tempNewSongs);
   }
-
-  // function searchItems(searchValue) {
-  //   if (searchInput !== "") {
-  //     const filteredData = songs.filter((item) => {
-  //       return Object.values(item)
-  //         .join("")
-  //         .toLowerCase()
-  //         .includes(searchInput.toLowerCase());
-  //     });
-  //     // console.log(filteredData);
-  //     setFilteredResults(filteredData);
-  //   } else {
-  //     setFilteredResults(songs)
-  //   }
-  // }
 
   return (
     <div>
