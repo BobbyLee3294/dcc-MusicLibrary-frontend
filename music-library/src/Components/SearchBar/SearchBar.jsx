@@ -1,16 +1,23 @@
 import React, { useState } from "react";
 
-const SearchBar = (props) => {
-  const [searchInput, setSearchInput] = useState("");
-
-  const searchItems = (searchValue) => {
-    // console.log(searchValue); 
-    setSearchInput(searchValue);
-  };
+const SearchBar = ({ songs }) => {
+  const [search, setSearch] = useState("");
 
   const handleChange = (e) => {
     e.preventDefault();
     searchItems(e.target.value);
+  };
+
+  const searchItems = () => {
+    let matchingSongs = songs.filter((song) => {
+      if (song.title.includes(search)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    console.log(matchingSongs);
+    setSearch(matchingSongs);
   };
 
   return (
@@ -20,7 +27,7 @@ const SearchBar = (props) => {
           <input
             type="search"
             id="formSearch"
-            value={searchInput}
+            value={search}
             onChange={handleChange}
           />
         </div>
