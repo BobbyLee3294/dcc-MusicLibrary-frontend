@@ -4,10 +4,10 @@ const SearchBar = (props) => {
   const [search, setSearch] = useState("");
 
   function handleSubmit(e) {
-    e.preventDefault()
-    props.songFilter(search)
+    e.preventDefault();
+    props.songFilter(search);
   }
-  
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -19,9 +19,9 @@ const SearchBar = (props) => {
             onChange={(event) => setSearch(event.target.value)}
           />
         </div>
-          <div id="search-btn">
-            <input type="button" value="Search"/>
-          </div>
+        <button id="search-btn" type="submit">
+          Search
+        </button>
       </form>
     </div>
   );
