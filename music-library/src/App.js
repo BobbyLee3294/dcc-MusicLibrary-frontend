@@ -28,34 +28,31 @@ function App() {
    * @param {String} value The string value retrieved from the component
    */
   function songFilter(value) {
-    songs.filter((song) => {
+    let matchingSongs = songs.filter((song) => {
       if (song.title.includes(value)) {
         return true;
       } else {
         return false;
       }
     });
+    console.log(matchingSongs);
+    setSongs(matchingSongs);
   }
   return (
     <div>
-      <head>
-        <h1>Your Music Library</h1>
-      </head>
-      <body>
-        {/* <div id="getAllSongs-btn">
+      {/* <div id="getAllSongs-btn">
           <button onClick={() => getAllSongs()}>Get All Songs</button>
         </div> */}
-        <div id="AddSong">
-          <AddSong addNewSong={addNewSong} />
-        </div>
-        <div id="SearchBar">
-          <SearchBar songFilter={songFilter} />
-          {/* possible child passing for filter */}
-        </div>
-        <div id="MusicTable">
-          <MusicTable parentSongs={songs} />
-        </div>
-      </body>
+      <div id="AddSong">
+        <AddSong addNewSong={addNewSong} />
+      </div>
+      <div id="SearchBar">
+        <SearchBar songFilter={songFilter} />
+        {/* possible child passing for filter */}
+      </div>
+      <div id="MusicTable">
+        <MusicTable parentSongs={songs} />
+      </div>
     </div>
   );
 }
