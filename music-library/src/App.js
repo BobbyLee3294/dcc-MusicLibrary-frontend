@@ -28,8 +28,8 @@ function App() {
    * @param {String} value The string value retrieved from the component
    */
   function songFilter(value) {
-    setSongs.filter((element) => {
-      if (element.value) {
+    songs.filter((song) => {
+      if (song.title.includes(value)) {
         return true;
       } else {
         return false;
@@ -49,7 +49,7 @@ function App() {
           <AddSong addNewSong={addNewSong} />
         </div>
         <div id="SearchBar">
-          <SearchBar songFilter={setSongs} />{" "}
+          <SearchBar songFilter={songFilter} />
           {/* possible child passing for filter */}
         </div>
         <div id="MusicTable">
