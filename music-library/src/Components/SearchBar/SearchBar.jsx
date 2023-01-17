@@ -10,7 +10,7 @@ const SearchBar = (props) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div id="inputSearch">
           <input
             type="search"
@@ -20,7 +20,7 @@ const SearchBar = (props) => {
           />
         </div>
         <button id="search-btn" type="submit">
-          Search
+          🔍
         </button>
       </form>
     </div>
