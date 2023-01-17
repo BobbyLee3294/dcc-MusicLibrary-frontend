@@ -14,15 +14,16 @@ const AddSong = (props) => {
       title: songTitle,
       artist: songArtist,
       album: songAlbum,
-      releaseDate: songReleaseDate,
+      release_date: songReleaseDate,
       genre: songGenre,
     };
     /**TODO: adding a new song to the database */
     console.log(newSong);
+    props.addNewSong(newSong);
   }
   return (
     <div>
-      <form onSubmit={handleSubmit} action="" method="post">
+      <form onSubmit={(e) => handleSubmit(e)} action="" method="post">
         <div id="songInfo">
           <div id="songTitle">
             <div>
