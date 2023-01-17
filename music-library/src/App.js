@@ -7,6 +7,7 @@ import AddSong from "./Components/AddSong/AddSong";
 
 function App() {
   const [songs, setSongs] = useState([]);
+  const baseURL = "http://127.0.0.1:8000/api/music/";
 
   useEffect(() => {
     getAllSongs();
@@ -14,14 +15,16 @@ function App() {
   }, []);
 
   async function getAllSongs() {
-    const response = await axios.get("http://127.0.0.1:8000/api/music/");
+    const response = await axios.get(baseURL);
     console.log(response);
     setSongs(response.data);
   }
 
-  function addNewSong(entry) {
-    let tempSongs = [entry, ...songs];
-    setSongs(tempSongs);
+  async function addNewSong(entry) {
+    const response = await axios.post(baseURL, entry);
+    if (response.status === 201) {
+      await getAllSongs();
+    }
   }
   /**
    * This filter function is used to filter through the database based on the value entered from the SearchBar component.
@@ -40,16 +43,15 @@ function App() {
   }
   return (
     <div>
-      {/* <div id="getAllSongs-btn">
-          <button onClick={() => getAllSongs()}>Get All Songs</button>
-        </div> */}
       <div id="AddSong">
         <AddSong addNewSong={addNewSong} />
       </div>
       <div id="SearchBar">
         <SearchBar songFilter={songFilter} />
-        {/* possible child passing for filter */}
       </div>
+      <span id="getAllSongs-btn">
+        <button onClick={() => getAllSongs()}>Get All Songs</button>
+      </span>
       <div id="MusicTable">
         <MusicTable parentSongs={songs} />
       </div>
