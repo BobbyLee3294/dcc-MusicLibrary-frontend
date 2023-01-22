@@ -94,9 +94,6 @@ const AddSong = (props) => {
         <div id="addSong-btn">
           <input type="submit" value="Add Song" />
         </div>
-        <div id="resetInfo-btn">
-          <input type="reset" />
-        </div>
       </form>
     </div>
   );
