@@ -1,5 +1,5 @@
-/**jsx file used for user to add songs to library */
 import React, { useState } from "react";
+import Button from "react-bootstrap/Button";
 
 const AddSong = (props) => {
   const [songTitle, setSongTitle] = useState("");
@@ -91,7 +91,7 @@ const AddSong = (props) => {
           </div>
         </div>
         <div id="addSong-btn">
-          <input type="submit" value="Add Song" />
+          <Button type="submit" variant="dark">Add Song</Button>
         </div>
       </form>
     </div>

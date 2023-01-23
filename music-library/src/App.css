@@ -1,0 +1,60 @@
+.border-box {
+  background-color: #577678;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+  margin: 1em;
+  padding: 1em;
+}
+#addSong-btn{
+    padding: .05em;
+}
+#background-img {
+  background: url("../src/images/clay-banks-fEVaiLwWvlU-unsplash.jpg") no-repeat
+    center;
+  background-size: cover;
+}
+/* #formSearch, */
+#formTitle,
+#formArtist,
+#formAlbum,
+#formReleaseDate,
+#formGenre {
+  width: 100%;
+  margin: .05em;
+}
+#songTitle,
+#songArtist,
+#songAlbum,
+#songReleaseDate,
+#songGenre {
+  padding: .05em;
+}
+#tableTitle,
+#tableArtist,
+#tableAlbum,
+#tableReleaseDate,
+#tableGenre {
+  white-space: nowrap;
+}
+Button{
+    background-color: black;
+}
+header {
+  background-color: #577678;
+  border-bottom: 2px;
+  border-color: black;
+  border-style: none none solid none;
+  font-size: xx-large;
+}
+tr,
+th,
+td {
+  margin: 1em;
+}
+th {
+  padding: 1em;
+}
+td {
+  padding-left: 1em;
+}
